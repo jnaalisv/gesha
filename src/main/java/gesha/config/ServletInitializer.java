@@ -1,5 +1,6 @@
 package gesha.config;
 
+import gesha.config.security.SpringSecurityConfiguration;
 import gesha.config.security.WebSecurityConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -7,7 +8,7 @@ public class ServletInitializer extends AbstractAnnotationConfigDispatcherServle
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {WebSecurityConfig.class};
+        return new Class[] {WebSecurityConfig.class, SpringSecurityConfiguration.class};
     }
 
     @Override
