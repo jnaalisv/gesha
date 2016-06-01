@@ -12,6 +12,7 @@ ext {
     assertJVersion = "3.4.1"
     servletApiVersion = "3.1.0"
     springVersion = "4.2.6.RELEASE"
+    springSecurityVersion = "4.1.0.RELEASE"
 }
 
 repositories {
@@ -27,6 +28,9 @@ dependencies {
 
     compile "javax.servlet:javax.servlet-api:$servletApiVersion"
     compile "org.springframework:spring-webmvc:$springVersion"
+
+    compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
     testCompile "junit:junit:$junitVersion"
     testCompile "org.assertj:assertj-core:$assertJVersion"
     testCompile "org.springframework:spring-test:$springVersion"
