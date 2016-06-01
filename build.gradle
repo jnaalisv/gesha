@@ -1,5 +1,13 @@
 plugins {
+    id "groovy"
     id "java"
+}
+
+ext {
+    slf4jVersion = "1.7.20"
+    logbackVersion = "1.1.7"
+    junitVersion = "4.12"
+    groovyVersion = "2.4.1"
 }
 
 repositories {
@@ -7,7 +15,12 @@ repositories {
 }
 
 dependencies {
-    testCompile "org.junit:junit:4.12"
+    runtime "ch.qos.logback:logback-classic:$logbackVersion"
+    runtime "org.codehaus.groovy:groovy:$groovyVersion"
+
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+
+    testCompile "junit:junit:$junitVersion"
 }
 
 wrapper {
