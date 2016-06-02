@@ -22,9 +22,7 @@ public class AuthenticationTest extends AbstractSpringWebMvcTest{
 
     @Test
     public void authenticateReturnsToken() throws Exception {
-        CredentialsDTO credentialsDTO = new CredentialsDTO();
-        credentialsDTO.username = "admin";
-        credentialsDTO.password = "admin";
+        CredentialsDTO credentialsDTO = new CredentialsDTO("admin", "admin");
 
         String response = mockMvc
                 .perform(post("/authenticate")
