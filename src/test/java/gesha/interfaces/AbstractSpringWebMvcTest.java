@@ -1,5 +1,6 @@
 package gesha.interfaces;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import gesha.config.WebConfiguration;
 import gesha.config.security.SpringSecurityConfiguration;
 import gesha.config.security.WebSecurityConfig;
@@ -18,6 +19,8 @@ import org.springframework.web.context.WebApplicationContext;
 @WebAppConfiguration
 @ContextConfiguration(classes = {WebSecurityConfig.class, WebConfiguration.class, SpringSecurityConfiguration.class })
 public abstract class AbstractSpringWebMvcTest {
+
+    protected final ObjectMapper objectMapper = new ObjectMapper();
 
     @Autowired
     private FilterChainProxy springSecurityFilterChain;
