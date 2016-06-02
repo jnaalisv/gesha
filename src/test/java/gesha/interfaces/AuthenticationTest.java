@@ -14,7 +14,7 @@ public class AuthenticationTest extends AbstractSpringWebMvcTest{
     @Test
     public void resourceIsSecured() throws Exception {
         mockMvc
-                .perform(get("/protected"))
+                .perform(get("/protected-resource"))
                 .andExpect(status().is(HttpStatus.UNAUTHORIZED.value()));
     }
 

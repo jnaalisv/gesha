@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("protected")
+@RequestMapping("protected-resource")
 public class ProtectedResourceController {
 
     @RequestMapping(method = RequestMethod.GET)
