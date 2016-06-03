@@ -10,6 +10,7 @@ import org.springframework.security.core.token.KeyBasedPersistenceTokenService;
 import org.springframework.security.core.token.SecureRandomFactoryBean;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider;
 
+import gesha.authentication.UserNameEqualsPasswordAuthProvider;
 import gesha.authentication.PreAuthUserDetailsService;
 
 @Configuration
@@ -33,6 +34,6 @@ public class SpringSecurityConfiguration {
 
     @Bean
     public AuthenticationManager authenticationManager(PreAuthenticatedAuthenticationProvider preAuthProvider) {
-        return new ProviderManager(Arrays.asList(preAuthProvider));
+        return new ProviderManager(Arrays.asList(preAuthProvider, new UserNameEqualsPasswordAuthProvider()));
     }
 }

@@ -14,7 +14,7 @@ import gesha.AbstractSpringWebMvcTest;
 public class AuthenticationControllerTest extends AbstractSpringWebMvcTest {
 
     @Test
-    public void authenticateReturnsToken() throws Exception {
+    public void equalUserNameAndPasswordAuthenticate() throws Exception {
         CredentialsDTO credentialsDTO = new CredentialsDTO("admin", "admin");
 
         String response = mockMvc
@@ -26,5 +26,17 @@ public class AuthenticationControllerTest extends AbstractSpringWebMvcTest {
                 .andReturn().getResponse().getContentAsString();
 
         assertThat(response).isNotNull();
+    }
+
+    @Test
+    public void inEqualUsernameAndPasswordDontAuthenticate() throws Exception {
+        CredentialsDTO credentialsDTO = new CredentialsDTO("admin", "wrongPassword");
+
+        mockMvc
+                .perform(post("/authenticate")
+                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .content(objectMapper.writeValueAsString(credentialsDTO))
+                )
+                .andExpect(status().is(HttpStatus.UNAUTHORIZED.value()));
     }
 }
