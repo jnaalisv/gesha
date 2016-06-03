@@ -22,7 +22,10 @@ public class AuthenticationController {
 
     @RequestMapping(method = RequestMethod.POST, path = "authenticate", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
     public String authenticate(@RequestBody CredentialsDTO credentials) throws Exception {
+
+        // no authentication attempt yet
         UsernamePasswordAuthenticationToken authenticationRequest = new UsernamePasswordAuthenticationToken(credentials.username, credentials.password);
+
         Token token = keyBasedPersistenceTokenService.allocateToken(credentials.username);
         return token.getKey();
     }

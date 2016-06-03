@@ -1,4 +1,4 @@
-package gesha.interfaces;
+package gesha;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import gesha.config.WebConfiguration;
@@ -17,7 +17,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = {WebSecurityConfig.class, WebConfiguration.class, SpringSecurityConfiguration.class })
+@ContextConfiguration(classes = {WebSecurityConfig.class, WebConfiguration.class })
 public abstract class AbstractSpringWebMvcTest {
 
     protected final ObjectMapper objectMapper = new ObjectMapper();

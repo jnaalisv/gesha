@@ -1,24 +1,17 @@
-package gesha.interfaces;
+package gesha.interfaces.authentication;
 
-import gesha.interfaces.authentication.CredentialsDTO;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import gesha.AbstractSpringWebMvcTest;
 
 
-public class AuthenticationTest extends AbstractSpringWebMvcTest{
-
-    @Test
-    public void resourceIsSecured() throws Exception {
-        mockMvc
-                .perform(get("/protected-resource"))
-                .andExpect(status().is(HttpStatus.UNAUTHORIZED.value()));
-    }
+public class AuthenticationControllerTest extends AbstractSpringWebMvcTest {
 
     @Test
     public void authenticateReturnsToken() throws Exception {
