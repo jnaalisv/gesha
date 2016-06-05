@@ -14,6 +14,7 @@ ext {
     springVersion = "4.2.6.RELEASE"
     springSecurityVersion = "4.1.0.RELEASE"
     jacksonVersion = "2.7.3"
+    javaJwtVersion = "2.1.0"
 }
 
 repositories {
@@ -31,6 +32,10 @@ dependencies {
     compile "org.springframework.security:spring-security-web:$springSecurityVersion"
     compile "org.springframework.security:spring-security-config:$springSecurityVersion"
     compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+
+    compile "com.auth0:java-jwt:$javaJwtVersion"
+    compile "commons-codec:commons-codec:1.4"
+
     testCompile "junit:junit:$junitVersion"
     testCompile "org.assertj:assertj-core:$assertJVersion"
     testCompile "org.springframework:spring-test:$springVersion"
