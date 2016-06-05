@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
 import gesha.AbstractSpringWebMvcTest;
-import gesha.interfaces.authentication.CredentialsDTO;
+import gesha.web.interfaces.authentication.CredentialsDTO;
 
 
 public class AuthenticationFeatureTest extends AbstractSpringWebMvcTest{

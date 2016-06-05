@@ -1,9 +1,12 @@
 package gesha;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import gesha.config.WebConfiguration;
-import gesha.config.security.SpringSecurityConfiguration;
-import gesha.config.security.WebSecurityConfig;
+
+import gesha.infrastructure.config.PersistenceConfiguration;
+import gesha.model.config.DomainConfiguration;
+import gesha.web.config.WebConfiguration;
+import gesha.web.config.security.SpringSecurityConfiguration;
+import gesha.web.config.security.WebSecurityConfig;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +20,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = {WebSecurityConfig.class, WebConfiguration.class })
+@ContextConfiguration(classes = {PersistenceConfiguration.class, DomainConfiguration.class, WebSecurityConfig.class, WebConfiguration.class })
 public abstract class AbstractSpringWebMvcTest {
 
     protected final ObjectMapper objectMapper = new ObjectMapper();

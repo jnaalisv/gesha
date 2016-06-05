@@ -1,0 +1,3 @@
+insert into User (ID, username, password) values (nextval('hibernate_sequence') , 'Admin', '$2a$10$jV5hPTH7P4eKCxvey3nWbuENELeydBkv8IYJ/DKZlReEqDFfmVf/u');
+insert into User (ID, username, password) values (nextval('hibernate_sequence'), 'User', '$2a$10$GnoF3zkA3jdQIYMaBqrD/OIod/htP0qEaE6dXx56Zn2LQxw6FG0SO');
+insert into User (ID, username, password) values (nextval('hibernate_sequence'), 'INTEGRATION', '$2a$10$9usa6VRxVoVRYfJFpfQa/O1TqqiDZe/ET/p5.4B0da9vnVCpueqU2');
