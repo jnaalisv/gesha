@@ -31,5 +31,5 @@ Then use the returned JSON Web Token in place of TOKEN to query for all users:
 
 ```
 curl -X GET http://localhost:8080/gesha/users \
-	-H "Authorization: TOKEN"
+	-H "Authorization: Bearer TOKEN"
 ```

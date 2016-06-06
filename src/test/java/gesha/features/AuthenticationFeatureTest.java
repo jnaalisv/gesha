@@ -1,16 +1,15 @@
 package gesha.features;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
+import gesha.AbstractSpringWebMvcTest;
+import gesha.web.interfaces.authentication.CredentialsDTO;
 import org.junit.Test;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-import gesha.AbstractSpringWebMvcTest;
-import gesha.web.interfaces.authentication.CredentialsDTO;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 public class AuthenticationFeatureTest extends AbstractSpringWebMvcTest{
@@ -35,7 +34,7 @@ public class AuthenticationFeatureTest extends AbstractSpringWebMvcTest{
     @Test
     public void authenticationTokenAuthorizesAccessToProtectedResources() throws Exception {
 
-        CredentialsDTO credentialsDTO = new CredentialsDTO("admin", "admin");
+        CredentialsDTO credentialsDTO = new CredentialsDTO("Admin", "admin");
 
         String authenticationToken = mockMvc
                 .perform(post("/authenticate")
