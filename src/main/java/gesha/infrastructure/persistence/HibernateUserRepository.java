@@ -28,10 +28,10 @@ public class HibernateUserRepository implements UserRepository {
 
     @Override
     public Optional<User> loadUserByUsername(String username) {
-        return Optional.ofNullable ((User) getCurrentSession()
-                .createQuery("SELECT user From User user where user.username = :username")
+        return getCurrentSession()
+                .createQuery("select user from User user where user.username = :username", User.class)
                 .setParameter("username", username)
-                .uniqueResult());
+                .uniqueResultOptional();
     }
 
     @Override
@@ -39,11 +39,10 @@ public class HibernateUserRepository implements UserRepository {
         getCurrentSession().save(user);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public List<User> getAll() {
         return getCurrentSession()
-                .createQuery("SELECT user From User user")
+                .createQuery("SELECT user From User user", User.class)
                 .list();
     }
 }
