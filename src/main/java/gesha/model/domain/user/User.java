@@ -29,10 +29,6 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-//    public static GeshaUser fromJwtClaims(final Map<String, Object> claims) {
-//        return new GeshaUser(UrlEncoderDecoder.decode(claims.get(USERNAME)));
-//    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Arrays.asList((GrantedAuthority) () -> username);
