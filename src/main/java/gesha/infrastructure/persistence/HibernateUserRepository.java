@@ -39,6 +39,7 @@ public class HibernateUserRepository implements UserRepository {
         getCurrentSession().save(user);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<User> getAll() {
         return getCurrentSession()
