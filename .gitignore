@@ -1,2 +1,7 @@
+# gradle folders
 /build
 .gradle
+
+# IntelliJ Idea folders
+out
+.idea
