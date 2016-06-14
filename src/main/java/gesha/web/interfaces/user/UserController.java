@@ -1,21 +1,16 @@
 package gesha.web.interfaces.user;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.inject.Inject;
-
+import gesha.model.application.UserService;
+import gesha.model.domain.user.User;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import gesha.model.application.UserService;
-import gesha.model.domain.user.User;
+import javax.inject.Inject;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("users")
@@ -28,7 +23,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<UserDTO> getAll() {
         return userService
                 .getAll()
@@ -37,7 +32,7 @@ public class UserController {
                 .collect(Collectors.toList());
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<UserDTO> createNew(@RequestBody UserDTO userDTO) {
 
         User user = new User(userDTO.username, userDTO.password);
