@@ -2,13 +2,11 @@
 
 ## [Auth0](https://auth0.com/) as JWT implementation
 
-### Cloning and running from terminal
-1. `git clone git@github.com:jnaalisv/gesha.git`
-2. `cd gesha`
-3. `./gradlew jettyRunWarDebug`
-
-### Importing to IDE
-Importing as "gradle project" is supported by latest Eclipse and IntelliJ IDEA 
+```
+git clone git@github.com:jnaalisv/gesha.git
+cd gesha
+./gradlew jettyRunWarDebug
+```
 
 ### Usage examples
 The application is initialized with following users:
