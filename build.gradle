@@ -5,19 +5,19 @@ plugins {
 }
 
 ext {
-    slf4jVersion = "1.7.24"
-    logbackVersion = "1.2.1"
+    slf4jVersion = "1.7.25"
+    logbackVersion = "1.2.2"
     junitVersion = "4.12"
-    groovyVersion = "2.4.1"
+    groovyVersion = "2.4.9"
     assertJVersion = "3.4.1"
     servletApiVersion = "3.1.0"
     springVersion = "4.3.7.RELEASE"
     springSecurityVersion = "4.2.2.RELEASE"
-    jacksonVersion = "2.8.6"
+    jacksonVersion = "2.8.7"
     javaJwtVersion = "2.1.0"
     hibernateVersion = "5.2.8.Final"
-    hikariCPVersion = "2.6.0"
-    h2Version = "1.4.191"
+    hikariCPVersion = "2.6.1"
+    h2Version = "1.4.193"
 }
 
 repositories {
