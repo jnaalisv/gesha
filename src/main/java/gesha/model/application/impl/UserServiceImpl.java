@@ -1,9 +1,8 @@
 package gesha.model.application.impl;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
+import gesha.model.application.UserService;
+import gesha.model.domain.user.User;
+import gesha.model.domain.user.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,9 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import gesha.model.application.UserService;
-import gesha.model.domain.user.User;
-import gesha.model.domain.user.UserRepository;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
@@ -21,7 +18,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private final BCryptPasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
 
-    @Inject
     public UserServiceImpl(final BCryptPasswordEncoder passwordEncoder, final UserRepository userRepository) {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;

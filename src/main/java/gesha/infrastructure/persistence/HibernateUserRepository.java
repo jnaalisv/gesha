@@ -2,9 +2,6 @@ package gesha.infrastructure.persistence;
 
 import java.util.List;
 import java.util.Optional;
-
-import javax.inject.Inject;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -17,7 +14,6 @@ public class HibernateUserRepository implements UserRepository {
 
     private final SessionFactory sessionFactory;
 
-    @Inject
     public HibernateUserRepository(final SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
