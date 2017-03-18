@@ -5,7 +5,7 @@
 ```
 git clone git@github.com:jnaalisv/gesha.git
 cd gesha
-./gradlew jettyRunWarDebug
+./gradlew bootRun
 ```
 
 ### Usage examples
@@ -20,14 +20,11 @@ The application is initialized with following users:
 To get authentication token for 'Admin' user:
 
 ```
-curl -X POST -H "Content-Type: application/json" \ 
-	-d '{"username": "Admin", "password": "admin"}' \
-	http://localhost:8080/gesha/authenticate
+curl -X POST -H "Content-Type: application/json" -d '{"username": "Admin", "password": "admin"}' http://localhost:9000/gesha/authenticate
 ```
 
 Then use the returned JSON Web Token in place of TOKEN to query for all users:
 
 ```
-curl -X GET http://localhost:8080/gesha/users \
-	-H "Authorization: Bearer TOKEN"
+curl -X GET http://localhost:9000/gesha/users -H "Authorization: Bearer TOKEN"
 ```

@@ -1,8 +1,8 @@
 plugins {
+    id 'org.springframework.boot' version '1.5.2.RELEASE'
     id "groovy"
-    id "war"
-    id "org.akhikhl.gretty" version "1.4.0"
 }
+
 
 ext {
     slf4jVersion = "1.7.25"
@@ -23,29 +23,36 @@ repositories {
     jcenter()
 }
 
+ext['hikaricp.version'] = "2.6.1"
+
 dependencies {
-    runtime "ch.qos.logback:logback-classic:$logbackVersion"
-    runtime "org.codehaus.groovy:groovy:$groovyVersion"
-    runtime "org.slf4j:jcl-over-slf4j:$slf4jVersion"
 
-    compile "org.slf4j:slf4j-api:$slf4jVersion"
-    compile "org.springframework:spring-webmvc:$springVersion"
-    compile "org.springframework.security:spring-security-web:$springSecurityVersion"
-    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
-    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    runtime (
+            "ch.qos.logback:logback-classic:$logbackVersion",
+            "org.codehaus.groovy:groovy:$groovyVersion",
+            "org.slf4j:jcl-over-slf4j:$slf4jVersion",
+            "com.h2database:h2:$h2Version"
+    )
 
-    compile "com.auth0:java-jwt:$javaJwtVersion"
-    compile "commons-codec:commons-codec:1.4"
+    compile (
+            "org.slf4j:slf4j-api:$slf4jVersion",
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.security:spring-security-web:$springSecurityVersion",
+            "org.springframework.security:spring-security-config:$springSecurityVersion",
+            "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
+            "com.auth0:java-jwt:$javaJwtVersion",
+            "commons-codec:commons-codec:1.4",
+            "org.hibernate:hibernate-core:$hibernateVersion",
+            "org.springframework:spring-tx:$springVersion",
+            "org.springframework:spring-orm:$springVersion",
+            "com.zaxxer:HikariCP",
+    )
 
-    compile "org.hibernate:hibernate-core:$hibernateVersion"
-    compile "org.springframework:spring-tx:$springVersion"
-    compile "org.springframework:spring-orm:$springVersion"
-    compile "com.zaxxer:HikariCP:$hikariCPVersion"
-    compile "com.h2database:h2:$h2Version"
-
-    testCompile "junit:junit:$junitVersion"
-    testCompile "org.assertj:assertj-core:$assertJVersion"
-    testCompile "org.springframework:spring-test:$springVersion"
+    testCompile (
+            "junit:junit:$junitVersion",
+            "org.assertj:assertj-core:$assertJVersion",
+            "org.springframework:spring-test:$springVersion"
+    )
 }
 
 configurations {
@@ -65,11 +72,3 @@ gradle.projectsEvaluated {
         options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
     }
 }
-
-gretty {
-    contextPath = "gesha"
-    servletContainer = "jetty9"
-    debugSuspend = false
-    integrationTestTask = 'none'
-}
-

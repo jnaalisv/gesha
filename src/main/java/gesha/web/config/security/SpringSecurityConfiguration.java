@@ -1,9 +1,12 @@
 package gesha.web.config.security;
 
-import java.util.Arrays;
-
+import com.auth0.jwt.JWTSigner;
+import com.auth0.jwt.JWTVerifier;
+import gesha.model.config.DomainConfiguration;
+import gesha.web.authentication.JWTUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -11,11 +14,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider;
 
-import com.auth0.jwt.JWTSigner;
-import com.auth0.jwt.JWTVerifier;
+import java.util.Arrays;
 
-import gesha.web.authentication.JWTUserDetailsService;
-
+@Import(DomainConfiguration.class)
 @Configuration
 public class SpringSecurityConfiguration {
 

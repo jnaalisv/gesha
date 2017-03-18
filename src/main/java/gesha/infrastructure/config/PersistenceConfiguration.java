@@ -1,10 +1,7 @@
 package gesha.infrastructure.config;
 
-import java.beans.PropertyVetoException;
-import java.util.Properties;
-
-import javax.sql.DataSource;
-
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,8 +10,9 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
+import javax.sql.DataSource;
+import java.beans.PropertyVetoException;
+import java.util.Properties;
 
 @Configuration
 @ComponentScan(basePackages = {"gesha.infrastructure.persistence"})
@@ -43,7 +41,6 @@ public class PersistenceConfiguration {
         //new database objects and schema elements
         hibernateProperties.put("hibernate.ejb.naming_strategy", "org.hibernate.cfg.ImprovedNamingStrategy");
 
-        hibernateProperties.put("hibernate.show_sql","true");
         hibernateProperties.put("hibernate.format_sql", "true");
         return hibernateProperties;
     }
@@ -52,7 +49,7 @@ public class PersistenceConfiguration {
     public LocalSessionFactoryBean sessionFactory(DataSource dataSource) throws PropertyVetoException {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        sessionFactory.setPackagesToScan(new String[] { "gesha.model.domain.user" });
+        sessionFactory.setPackagesToScan("gesha.model.domain.user");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }

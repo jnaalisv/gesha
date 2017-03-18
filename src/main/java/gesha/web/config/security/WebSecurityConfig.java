@@ -1,6 +1,6 @@
 package gesha.web.config.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import gesha.web.authentication.PreAuthTokenFilter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,15 +10,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import gesha.web.authentication.PreAuthTokenFilter;
-
 @Configuration
 @Import(SpringSecurityConfiguration.class)
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
+
+    public WebSecurityConfig(final AuthenticationManager authenticationManager) {
+        this.authenticationManager = authenticationManager;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
