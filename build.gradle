@@ -3,55 +3,48 @@ plugins {
     id "groovy"
 }
 
-
-ext {
-    slf4jVersion = "1.7.25"
-    logbackVersion = "1.2.2"
-    junitVersion = "4.12"
-    groovyVersion = "2.4.9"
-    assertJVersion = "3.4.1"
-    springVersion = "4.3.7.RELEASE"
-    springSecurityVersion = "4.2.2.RELEASE"
-    jacksonVersion = "2.8.7"
-    javaJwtVersion = "2.1.0"
-    hibernateVersion = "5.2.8.Final"
-    hikariCPVersion = "2.6.1"
-    h2Version = "1.4.193"
-}
-
 repositories {
     jcenter()
 }
 
+
+ext {
+    javaJwtVersion = "2.1.0"
+}
+
+// Spring Boot managed versions
 ext['hikaricp.version'] = "2.6.1"
+ext['hibernate.version'] = "5.2.8.Final"
 
 dependencies {
 
     runtime (
-            "ch.qos.logback:logback-classic:$logbackVersion",
-            "org.codehaus.groovy:groovy:$groovyVersion",
-            "org.slf4j:jcl-over-slf4j:$slf4jVersion",
-            "com.h2database:h2:$h2Version"
+            "ch.qos.logback:logback-classic",
+            "org.codehaus.groovy:groovy",
+            "org.slf4j:jcl-over-slf4j",
+            "com.h2database:h2"
     )
 
     compile (
-            "org.slf4j:slf4j-api:$slf4jVersion",
-            "org.springframework.boot:spring-boot-starter-web",
-            "org.springframework.security:spring-security-web:$springSecurityVersion",
-            "org.springframework.security:spring-security-config:$springSecurityVersion",
-            "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
+            "org.slf4j:slf4j-api",
+            "com.fasterxml.jackson.core:jackson-databind",
+            "org.springframework.boot:spring-boot-starter-tomcat",
+            "org.springframework:spring-webmvc",
+            "org.springframework.boot:spring-boot",
+            "org.springframework.boot:spring-boot-autoconfigure",
+            "org.springframework.boot:spring-boot-starter-security",
             "com.auth0:java-jwt:$javaJwtVersion",
             "commons-codec:commons-codec:1.4",
-            "org.hibernate:hibernate-core:$hibernateVersion",
-            "org.springframework:spring-tx:$springVersion",
-            "org.springframework:spring-orm:$springVersion",
+            "org.hibernate:hibernate-core",
+            "org.springframework:spring-tx",
+            "org.springframework:spring-orm",
             "com.zaxxer:HikariCP",
     )
 
     testCompile (
-            "junit:junit:$junitVersion",
-            "org.assertj:assertj-core:$assertJVersion",
-            "org.springframework:spring-test:$springVersion"
+            "junit:junit",
+            "org.assertj:assertj-core",
+            "org.springframework:spring-test"
     )
 }
 
