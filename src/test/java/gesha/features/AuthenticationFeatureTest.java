@@ -1,18 +1,32 @@
 package gesha.features;
 
-import gesha.AbstractSpringWebMvcTest;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import gesha.web.config.WebConfiguration;
 import gesha.web.interfaces.authentication.CredentialsDTO;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@AutoConfigureMockMvc
+@SpringBootTest(classes = {WebConfiguration.class})
+@RunWith(SpringRunner.class)
+public class AuthenticationFeatureTest {
 
-public class AuthenticationFeatureTest extends AbstractSpringWebMvcTest{
+    protected final ObjectMapper objectMapper = new ObjectMapper();
+
+    @Autowired
+    private MockMvc mockMvc;
 
     @Test
     public void resourceIsSecured() throws Exception {
