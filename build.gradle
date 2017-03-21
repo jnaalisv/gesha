@@ -14,7 +14,7 @@ ext {
 
 // Spring Boot managed versions
 ext['hikaricp.version'] = "2.6.1"
-ext['hibernate.version'] = "5.2.8.Final"
+ext['hibernate.version'] = "5.2.9.Final"
 
 dependencies {
 
