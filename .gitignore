@@ -2,6 +2,8 @@
 /build
 .gradle
 
+/target
+
 # IntelliJ Idea folders
 out
 .idea
