@@ -28,3 +28,17 @@ Then use the returned JSON Web Token in place of TOKEN to query for all users:
 ```
 curl -X GET http://localhost:9000/gesha/users -H "Authorization: Bearer TOKEN"
 ```
+
+
+#### Docker
+Build docker image
+
+```bash
+# docker build -t gesha .
+```
+
+Run the build docker image
+```bash 
+# docker run -p 9000:9000 -it --rm --name running-gesha gesha
+
+```
