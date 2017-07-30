@@ -51,7 +51,7 @@ configurations {
 }
 
 wrapper {
-    gradleVersion = "4.0"
+    gradleVersion = "4.0.2"
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
