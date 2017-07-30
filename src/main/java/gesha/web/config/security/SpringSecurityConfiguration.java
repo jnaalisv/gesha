@@ -5,7 +5,6 @@ import com.auth0.jwt.JWTVerifier;
 import gesha.model.config.DomainConfiguration;
 import gesha.web.authentication.JWTUserDetailsService;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
@@ -17,7 +16,6 @@ import org.springframework.security.web.authentication.preauth.PreAuthenticatedA
 import java.util.Arrays;
 
 @Import(DomainConfiguration.class)
-@Configuration
 public class SpringSecurityConfiguration {
 
     @Bean
