@@ -1,0 +1,12 @@
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %logger{40}: %msg%n%ex{full, sun, java.lang, java.util, javax, CGLIB}"
+
+  level:
+    ROOT: INFO
+    gesha: INFO
+    org.springframework: INFO
+    org.hibernate: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.tool.hbm2ddl.SchemaExport: DEBUG

@@ -1,6 +1,5 @@
 plugins {
     id 'org.springframework.boot' version '1.5.7.RELEASE'
-    id "groovy"
 }
 
 repositories {
@@ -19,8 +18,8 @@ ext['hibernate.version'] = "5.2.11.Final"
 dependencies {
 
     runtime (
+            "org.yaml:snakeyaml",
             "ch.qos.logback:logback-classic",
-            "org.codehaus.groovy:groovy",
             "org.slf4j:jcl-over-slf4j",
             "com.h2database:h2"
     )
