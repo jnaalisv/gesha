@@ -3,6 +3,7 @@ package gesha;
 import gesha.web.config.WebConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
+import org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +16,7 @@ public class GeshaApplication {
 
     @Bean
     public EmbeddedServletContainerFactory servletContainer() {
-        TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
+        JettyEmbeddedServletContainerFactory factory = new JettyEmbeddedServletContainerFactory();
         factory.setPort(9000);
         factory.setContextPath("/gesha");
         return factory;
