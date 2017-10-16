@@ -31,7 +31,7 @@ public class AuthenticationFeatureTest {
     @Test
     public void resourceIsSecured() throws Exception {
         mockMvc
-                .perform(get("/protected-resource"))
+                .perform(get("/users"))
                 .andExpect(status().is(HttpStatus.UNAUTHORIZED.value()));
     }
 
@@ -39,7 +39,7 @@ public class AuthenticationFeatureTest {
     public void invalidTokenDoesntWork() throws Exception {
         mockMvc
                 .perform(
-                        get("/protected-resource")
+                        get("/users")
                         .header(HttpHeaders.AUTHORIZATION, "not a valid token")
                 )
                 .andExpect(status().is(HttpStatus.UNAUTHORIZED.value()));
@@ -60,7 +60,7 @@ public class AuthenticationFeatureTest {
 
         mockMvc
                 .perform(
-                        get("/protected-resource")
+                        get("/users")
                                 .header(HttpHeaders.AUTHORIZATION, authenticationToken)
                 )
                 .andExpect(status().is(HttpStatus.OK.value()));
