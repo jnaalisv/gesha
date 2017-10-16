@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 logging:
   pattern:
     console: "%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %logger{40}: %msg%n%ex{full, sun, java.lang, java.util, javax, CGLIB}"

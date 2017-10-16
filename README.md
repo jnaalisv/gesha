@@ -20,13 +20,13 @@ The application is initialized with following users:
 To get authentication token for 'Admin' user:
 
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"username": "Admin", "password": "admin"}' http://localhost:9000/gesha/authenticate
+curl -X POST -H "Content-Type: application/json" -d '{"username": "Admin", "password": "admin"}' http://localhost:8080/authenticate
 ```
 
 Then use the returned JSON Web Token in place of TOKEN to query for all users:
 
 ```
-curl -X GET http://localhost:9000/gesha/users -H "Authorization: Bearer TOKEN"
+curl -X GET http://localhost:8080/users -H "Authorization: Bearer TOKEN"
 ```
 
 
@@ -39,6 +39,6 @@ Build docker image
 
 Run the build docker image
 ```bash 
-# docker run -p 9000:9000 -it --rm --name running-gesha gesha
+# docker run -p 8080:8080 -it --rm --name running-gesha gesha
 
 ```
