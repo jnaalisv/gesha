@@ -3,7 +3,7 @@ server:
 
 logging:
   pattern:
-    console: "%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %logger{40}: %msg%n%ex{full, sun, java.lang, java.util, javax, CGLIB}"
+    console: "%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %logger{40}: %msg%n%ex{full, sun, org.eclipse.jetty, org.springframework, java.lang, java.util, javax, CGLIB}"
 
   level:
     ROOT: INFO
