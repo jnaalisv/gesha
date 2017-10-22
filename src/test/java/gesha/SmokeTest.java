@@ -31,7 +31,7 @@ public class SmokeTest {
         final HttpEntity<?> requestEntity = new HttpEntity<>(httpHeaders);
 
         ResponseEntity<String> usersResponse = restTemplate.exchange("/users", HttpMethod.GET, requestEntity, String.class);
-        assertThat(usersResponse.getStatusCode()).isEqualTo(HttpStatus.FORBIDDEN);
+        assertThat(usersResponse.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
     }
 
     @Test
