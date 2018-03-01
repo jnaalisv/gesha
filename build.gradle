@@ -51,10 +51,6 @@ configurations {
     compile.exclude group: "commons-logging"
 }
 
-wrapper {
-    gradleVersion = "4.5"
-}
-
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
