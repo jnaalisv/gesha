@@ -15,9 +15,9 @@ dependencyManagement {
     }
 }
 
-// Spring Boot managed versions
+// override Spring Boot managed versions
 ext['hikaricp.version'] = "2.7.8"
-ext['hibernate.version'] = "5.2.14.Final"
+ext['hibernate.version'] = "5.2.15.Final"
 
 dependencies {
 
