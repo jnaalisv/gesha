@@ -17,12 +17,7 @@ ext['hibernate.version'] = "5.2.14.Final"
 
 dependencies {
 
-    runtime (
-            "org.yaml:snakeyaml",
-            "ch.qos.logback:logback-classic",
-            "org.slf4j:jcl-over-slf4j",
-            "com.h2database:h2"
-    )
+    runtime "com.h2database:h2"
 
     compile (
             "org.springframework.boot:spring-boot-starter-web",
