@@ -26,8 +26,7 @@ dependencies {
 
     compile (
             "org.springframework.boot:spring-boot-starter-web",
-            "org.springframework.security:spring-security-config",
-            "org.springframework.security:spring-security-web",
+	    "org.springframework.boot:spring-boot-starter-security",
             "com.auth0:java-jwt:$javaJwtVersion",
             "commons-codec:commons-codec:1.4",
             "org.hibernate:hibernate-core",
