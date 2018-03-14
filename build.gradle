@@ -8,9 +8,11 @@ repositories {
     jcenter()
 }
 
-
-ext {
-    javaJwtVersion = "2.1.0"
+dependencyManagement {
+    dependencies {
+        dependency 'com.auth0:java-jwt:2.1.0'
+        dependency 'commons-codec:commons-codec:1.4'
+    }
 }
 
 // Spring Boot managed versions
@@ -23,13 +25,15 @@ dependencies {
 
     compile (
             "org.springframework.boot:spring-boot-starter-web",
-	    "org.springframework.boot:spring-boot-starter-security",
-            "com.auth0:java-jwt:$javaJwtVersion",
-            "commons-codec:commons-codec:1.4",
+	        "org.springframework.boot:spring-boot-starter-security",
+
+            "com.auth0:java-jwt",
+            "commons-codec:commons-codec",
+
             "org.hibernate:hibernate-core",
             "org.springframework:spring-tx",
             "org.springframework:spring-orm",
-            "com.zaxxer:HikariCP",
+            "com.zaxxer:HikariCP"
     )
 
     testCompile (
