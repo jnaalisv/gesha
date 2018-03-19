@@ -3,13 +3,14 @@ package gesha.web.interfaces.authentication;
 import com.auth0.jwt.JWTSigner;
 import gesha.model.domain.user.User;
 import gesha.web.authentication.JWTClaimsBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -20,7 +21,6 @@ public class AuthenticationController {
     private final AuthenticationManager authenticationManager;
     private final JWTSigner jwtSigner;
 
-    @Autowired
     public AuthenticationController(final AuthenticationManager authenticationManager, final JWTSigner jwtSigner) {
         this.authenticationManager = authenticationManager;
         this.jwtSigner = jwtSigner;
