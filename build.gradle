@@ -1,7 +1,7 @@
 plugins {
     id "java"
-    id 'io.spring.dependency-management' version '1.0.5.RELEASE'
-    id 'org.springframework.boot' version '2.0.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.6.RELEASE'
+    id 'org.springframework.boot' version '2.1.1.RELEASE'
 }
 
 repositories {
@@ -14,10 +14,6 @@ dependencyManagement {
         dependency 'commons-codec:commons-codec:1.4'
     }
 }
-
-// override Spring Boot managed versions
-ext['hikaricp.version'] = "3.1.0"
-ext['hibernate.version'] = "5.2.16.Final"
 
 dependencies {
 
