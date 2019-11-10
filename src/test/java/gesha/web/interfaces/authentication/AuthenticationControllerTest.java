@@ -33,7 +33,7 @@ public class AuthenticationControllerTest {
 
         String response = mockMvc
                 .perform(post("/authenticate")
-                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content(objectMapper.writeValueAsString(credentialsDTO))
                 )
                 .andExpect(status().is(HttpStatus.OK.value()))
@@ -48,7 +48,7 @@ public class AuthenticationControllerTest {
 
         mockMvc
                 .perform(post("/authenticate")
-                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content(objectMapper.writeValueAsString(credentialsDTO))
                 )
                 .andExpect(status().is(HttpStatus.UNAUTHORIZED.value()));

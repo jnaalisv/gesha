@@ -52,7 +52,7 @@ public class AuthenticationFeatureTest {
 
         String authenticationToken = mockMvc
                 .perform(post("/authenticate")
-                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content(objectMapper.writeValueAsString(credentialsDTO))
                 )
                 .andExpect(status().is(HttpStatus.OK.value()))
