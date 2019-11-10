@@ -1,7 +1,8 @@
 package gesha.web.config.security;
 
-import com.auth0.jwt.JWTSigner;
+import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
 import gesha.model.config.DomainConfiguration;
 import gesha.web.authentication.JWTUserDetailsService;
 import org.springframework.context.annotation.Bean;
@@ -19,13 +20,15 @@ import java.util.Arrays;
 public class SpringSecurityConfiguration {
 
     @Bean
-    public JWTSigner jwtSigner() {
-        return new JWTSigner("secret");
+    public Algorithm algorithm() {
+        return Algorithm.HMAC256("secret");
     }
 
     @Bean
-    public JWTVerifier jwtVerifier() {
-        return new JWTVerifier("secret");
+    public JWTVerifier jwtVerifier(Algorithm algorithm) {
+        return JWT.require(algorithm)
+                .withIssuer("acme")
+                .build();
     }
 
     @Bean

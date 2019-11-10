@@ -1,5 +1,6 @@
 package gesha.web.authentication;
 
+import com.auth0.jwt.interfaces.Claim;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -7,9 +8,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 
-import static gesha.web.authentication.JWTClaimsBuilder.USERNAME;
-
 public class JWTUserDetails implements UserDetails {
+    private static final String USERNAME = "sub";
 
     private final String username;
 
@@ -17,8 +17,8 @@ public class JWTUserDetails implements UserDetails {
         this.username = username;
     }
 
-    public static JWTUserDetails fromJwtClaims(final Map<String, Object> claims) {
-        return new JWTUserDetails(UrlEncoderDecoder.decode(claims.get(USERNAME)));
+    public static JWTUserDetails fromJwtClaims(final Map<String, Claim> claims) {
+        return new JWTUserDetails(UrlEncoderDecoder.decode(claims.get(USERNAME).asString()));
     }
 
     @Override

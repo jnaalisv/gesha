@@ -1,13 +1,12 @@
 package gesha.web.authentication;
 
 import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.AuthenticationUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
-
-import java.util.Map;
 
 /**
  * This service is used to verify and extract user details from JSON Web Token that is stripped from the HTTP request by PreAuthTokenFilter.
@@ -33,12 +32,12 @@ public class JWTUserDetailsService implements AuthenticationUserDetailsService<P
 
         String jwtToken = preAuthenticatedAuthentication.getCredentials().toString();
 
-        Map<String, Object> jwtClaims = tryToVerify(jwtToken);
+        DecodedJWT decodedJWT = tryToVerify(jwtToken);
 
-        return JWTUserDetails.fromJwtClaims(jwtClaims);
+        return JWTUserDetails.fromJwtClaims(decodedJWT.getClaims());
     }
 
-    private Map<String, Object> tryToVerify(String jwtToken) {
+    private DecodedJWT tryToVerify(String jwtToken) {
         try {
             return jwtVerifier.verify(jwtToken);
         } catch (Exception e) {

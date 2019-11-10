@@ -10,8 +10,7 @@ repositories {
 
 dependencyManagement {
     dependencies {
-        dependency 'com.auth0:java-jwt:2.1.0'
-        dependency 'commons-codec:commons-codec:1.4'
+        dependency 'com.auth0:java-jwt:3.8.3'
     }
 }
 

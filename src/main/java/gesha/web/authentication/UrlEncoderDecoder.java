@@ -1,26 +1,17 @@
 package gesha.web.authentication;
 
-import com.auth0.jwt.internal.org.apache.commons.codec.CharEncoding;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 public class UrlEncoderDecoder {
 
     static String decode(Object o) {
-        try {
-            return URLDecoder.decode((String) o, CharEncoding.UTF_8);
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
+        return URLDecoder.decode((String) o, StandardCharsets.UTF_8);
     }
 
     public static String encode(String stringToEncode) {
-        try {
-            return URLEncoder.encode(stringToEncode, CharEncoding.UTF_8);
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
+        return URLEncoder.encode(stringToEncode, StandardCharsets.UTF_8);
     }
 }
