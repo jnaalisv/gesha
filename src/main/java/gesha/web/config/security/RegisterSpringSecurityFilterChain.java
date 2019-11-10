@@ -1,9 +1,9 @@
 package gesha.web.config.security;
 
-import javax.servlet.Filter;
-
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 import org.springframework.web.filter.DelegatingFilterProxy;
+
+import javax.servlet.Filter;
 
 /**
  * Registers the {@link DelegatingFilterProxy} to use the

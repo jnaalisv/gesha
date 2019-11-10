@@ -1,13 +1,13 @@
 package gesha.infrastructure.persistence;
 
-import java.util.List;
-import java.util.Optional;
+import gesha.model.domain.user.User;
+import gesha.model.domain.user.UserRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-import gesha.model.domain.user.User;
-import gesha.model.domain.user.UserRepository;
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class HibernateUserRepository implements UserRepository {

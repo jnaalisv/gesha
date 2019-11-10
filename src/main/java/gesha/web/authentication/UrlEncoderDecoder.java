@@ -1,10 +1,10 @@
 package gesha.web.authentication;
 
+import com.auth0.jwt.internal.org.apache.commons.codec.CharEncoding;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-
-import com.auth0.jwt.internal.org.apache.commons.codec.CharEncoding;
 
 public class UrlEncoderDecoder {
 

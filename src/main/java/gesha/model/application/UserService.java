@@ -1,8 +1,8 @@
 package gesha.model.application;
 
-import java.util.List;
-
 import gesha.model.domain.user.User;
+
+import java.util.List;
 
 public interface UserService {
 

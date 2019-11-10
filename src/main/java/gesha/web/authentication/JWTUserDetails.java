@@ -1,13 +1,13 @@
 package gesha.web.authentication;
 
-import static gesha.web.authentication.JWTClaimsBuilder.USERNAME;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import static gesha.web.authentication.JWTClaimsBuilder.USERNAME;
 
 public class JWTUserDetails implements UserDetails {
 

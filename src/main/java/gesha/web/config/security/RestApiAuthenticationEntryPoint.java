@@ -1,14 +1,13 @@
 package gesha.web.config.security;
 
-import java.io.IOException;
+import org.springframework.http.HttpHeaders;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.AuthenticationEntryPoint;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.http.HttpHeaders;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.web.AuthenticationEntryPoint;
+import java.io.IOException;
 
 class RestApiAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
