@@ -32,10 +32,10 @@ dependencies {
             "com.zaxxer:HikariCP"
     )
 
-    testImplementation (
-            "org.springframework.boot:spring-boot-starter-test",
-            "org.apache.httpcomponents:httpclient"
-    )
+    testImplementation "org.apache.httpcomponents:httpclient"
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude group: 'org.junit.vintage'
+    }
 }
 
 configurations {
@@ -50,4 +50,8 @@ gradle.projectsEvaluated {
         options.encoding = 'UTF-8'
         options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
     }
+}
+
+test {
+    useJUnitPlatform()
 }
