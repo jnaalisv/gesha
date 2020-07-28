@@ -47,7 +47,7 @@ public class PersistenceConfiguration {
     public LocalSessionFactoryBean sessionFactory(DataSource dataSource) throws PropertyVetoException {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        sessionFactory.setPackagesToScan("gesha.model.domain.user");
+        sessionFactory.setPackagesToScan("gesha.domain");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }

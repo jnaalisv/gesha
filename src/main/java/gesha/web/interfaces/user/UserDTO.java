@@ -2,7 +2,7 @@ package gesha.web.interfaces.user;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import gesha.model.domain.user.User;
+import gesha.domain.User;
 
 public class UserDTO {
 

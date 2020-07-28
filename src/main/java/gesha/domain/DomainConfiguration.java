@@ -1,10 +1,10 @@
-package gesha.model.config;
+package gesha.domain;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@ComponentScan(basePackages = {"gesha.model.domain", "gesha.model.application"})
+@ComponentScan(basePackages = {"gesha.domain"})
 public class DomainConfiguration {
 
     /**

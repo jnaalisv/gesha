@@ -2,7 +2,7 @@ package gesha.web.interfaces.authentication;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import gesha.model.domain.user.User;
+import gesha.domain.User;
 import gesha.web.authentication.UrlEncoderDecoder;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;

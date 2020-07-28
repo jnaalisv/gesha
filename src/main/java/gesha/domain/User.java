@@ -1,4 +1,4 @@
-package gesha.model.domain.user;
+package gesha.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

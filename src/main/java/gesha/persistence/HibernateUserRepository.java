@@ -1,7 +1,7 @@
 package gesha.persistence;
 
-import gesha.model.domain.user.User;
-import gesha.model.domain.user.UserRepository;
+import gesha.domain.User;
+import gesha.domain.UserRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;

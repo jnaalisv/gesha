@@ -1,7 +1,7 @@
 package gesha.web.interfaces.user;
 
-import gesha.model.application.UserService;
-import gesha.model.domain.user.User;
+import gesha.domain.UserService;
+import gesha.domain.User;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

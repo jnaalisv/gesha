@@ -1,6 +1,4 @@
-package gesha.model.application;
-
-import gesha.model.domain.user.User;
+package gesha.domain;
 
 import java.util.List;
 
