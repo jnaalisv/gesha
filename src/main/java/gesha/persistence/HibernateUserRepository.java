@@ -1,4 +1,4 @@
-package gesha.infrastructure.persistence;
+package gesha.persistence;
 
 import gesha.model.domain.user.User;
 import gesha.model.domain.user.UserRepository;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class HibernateUserRepository implements UserRepository {
+class HibernateUserRepository implements UserRepository {
 
     private final SessionFactory sessionFactory;
 

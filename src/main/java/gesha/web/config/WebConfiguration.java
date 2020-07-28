@@ -1,6 +1,6 @@
 package gesha.web.config;
 
-import gesha.infrastructure.config.PersistenceConfiguration;
+import gesha.persistence.PersistenceConfiguration;
 import gesha.model.config.DomainConfiguration;
 import gesha.web.config.security.WebSecurityConfig;
 import org.springframework.context.annotation.ComponentScan;

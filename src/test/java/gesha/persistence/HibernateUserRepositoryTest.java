@@ -1,10 +1,10 @@
-package gesha.infrastructure.persistence;
+package gesha.persistence;
 
-import gesha.infrastructure.config.PersistenceConfiguration;
 import gesha.model.domain.user.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;

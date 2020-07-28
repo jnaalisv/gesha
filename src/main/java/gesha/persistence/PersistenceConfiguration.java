@@ -1,4 +1,4 @@
-package gesha.infrastructure.config;
+package gesha.persistence;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 
-@ComponentScan(basePackages = {"gesha.infrastructure.persistence"})
+@ComponentScan("gesha.persistence")
 @EnableTransactionManagement
 public class PersistenceConfiguration {
 
@@ -27,7 +27,7 @@ public class PersistenceConfiguration {
         return new HikariDataSource(dataSourceConfig);
     }
 
-    private static final Properties hibernateProperties() {
+    private static Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
 
         hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
